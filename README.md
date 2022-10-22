@@ -1,6 +1,6 @@
 # Casino
 
-Casino is blackjack 21 using files as bets/wagers.
+Casino is a terminal program blackjack game using files as bets/wagers.
 
 # Installation
 
@@ -11,6 +11,16 @@ cargo install --path .
 ```
 
 ## Usage
+
+### Run
+
+```bash
+casino
+```
+
+### Settings
+
+**NOTE: By default, `casino` sets the bet to 0.**
 
 ```bash
 casino -h
