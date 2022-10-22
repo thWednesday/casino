@@ -14,10 +14,6 @@ impl Deck {
         let value: i32 = 0;
         let cards: Vec<Card> = Vec::new();
 
-        // for card in &cards {
-        //     value += card.value;
-        // }
-
         Self { cards, value }
     }
 

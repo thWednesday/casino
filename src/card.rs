@@ -49,34 +49,6 @@ fn cardTemplate(value: i32) -> Vec<String> {
     return template;
 }
 
-// fn cardTemplate(value: i32) -> Vec<String> {
-//     let mut template: Vec<String> = Vec::new();
-//     template.push(" __________ ".to_string());
-
-//     if value > 9 {
-//         template.push(format!("|{}        |", value.to_string()).to_string());
-//     } else {
-//         template.push(format!("|{}         |", value.to_string()).to_string());
-//     }
-
-//     template.push("|+         |".to_string());
-//     template.push("|    +     |".to_string());
-//     template.push("|          |".to_string());
-
-//     template.push("|    +     |".to_string());
-//     template.push("|         +|".to_string());
-
-//     if value > 9 {
-//         template.push(format!("|        {}|", value.to_string()).to_string());
-//     } else {
-//         template.push(format!("|         {}|", value.to_string()).to_string());
-//     }
-
-//     template.push(" ~~~~~~~~~~ ".to_string());
-
-//     return template;
-// }
-
 pub fn combineCards(cards: Vec<Card>) -> Vec<String> {
     let mut deck: Vec<String> = Vec::new();
 

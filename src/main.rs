@@ -4,10 +4,9 @@
 mod card;
 mod deck;
 mod token;
+
 // mod symbol;
 // mod util;
-
-use std::{fs, path::PathBuf};
 
 use crate::{
     card::combineCards,
@@ -15,9 +14,11 @@ use crate::{
     token::Token,
     // symbol::Symbol
 };
+
 use clap::{value_parser, Arg, Command};
 use rand::Rng;
 use std::time::Duration;
+use std::{fs, path::PathBuf};
 use text2art::{BasicFonts, Font, Printer};
 use tokio::time::sleep;
 
@@ -66,6 +67,7 @@ async fn main() {
     deck.start();
 
     while deck.value < 17 {
+        sleep(Duration::from_millis(400)).await;
         if deck.value >= 17 {
             break;
         }
@@ -80,9 +82,6 @@ async fn main() {
         }
     }
 
-    // println!("{:#?}", deck);
-    // println!("{}", WAGER.ascii.join("\n"));
-
     let mut WON: bool = true;
 
     if deck.value > 21 {
@@ -90,6 +89,12 @@ async fn main() {
     } else {
         WON = true;
     }
+
+    if matches.get_flag("animation") {
+        clearscreen::clear().expect("Could not clear screen");
+    }
+
+    println!("{}", combineCards(deck.cards.clone()).join("\n"));
 
     if WON {
         println!(
@@ -101,10 +106,6 @@ async fn main() {
             "\x1b[31m{}\x1b[0m",
             print(format!("Game lost ({})", deck.value))
         );
-    }
-
-    if !matches.get_flag("animation") {
-        println!("{}", combineCards(deck.cards.clone()).join("\n"));
     }
 
     if !WON {
