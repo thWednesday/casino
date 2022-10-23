@@ -58,6 +58,7 @@ async fn main() {
         .get_matches();
 
     let mut WAGER: Token = Token::new(*matches.get_one::<i32>("wager").unwrap());
+    let ANIMATION: bool = matches.get_flag("animation");
 
     if WAGER.value > 99 {
         WAGER.value = 99;
@@ -74,7 +75,7 @@ async fn main() {
 
         deck.hit();
 
-        if matches.get_flag("animation") {
+        if ANIMATION {
             clearscreen::clear().expect("Could not clear screen");
             println!("{}", combineCards(deck.cards.clone()).join("\n"));
             println!("{}", print(deck.value.to_string()));
@@ -90,7 +91,7 @@ async fn main() {
         WON = true;
     }
 
-    if matches.get_flag("animation") {
+    if ANIMATION {
         clearscreen::clear().expect("Could not clear screen");
     }
 
