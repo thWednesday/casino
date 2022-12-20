@@ -5,7 +5,7 @@ Casino is a terminal program blackjack game using files as bets/wagers.
 # Installation
 
 ```bash
-git clone https://github.com/arctich/casino
+git clone https://github.com/thWednesda/casino
 cd casino
 cargo install --path .
 ```
